@@ -30,6 +30,17 @@ public class DepartmentDtoMapper {
     return mappedList;
   }
 
+  public DepartmentDto mapWithObject(Department department)
+  {
+    return DepartmentDto.builder()
+        .name(department.getName())
+        .departmentGroup(department.getDepartmentGroup())
+        .id(department.getId())
+        .consTeam(department.getConsTeam())
+        .unitDto(department.getUnit()==null ? null : new UnitDtoMapper().map(department.getUnit()))
+        .build();
+  }
+
   public Department convertToEntity(DepartmentDto dto){
     return dto.convertToEntity(dto);
   }

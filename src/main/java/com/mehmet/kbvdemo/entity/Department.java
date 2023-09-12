@@ -46,7 +46,7 @@ public class Department implements Serializable {
 
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "unit_id")
+  @JoinColumn(name = "UNIT_ID")
   private Unit unit;
 
   public String toString(){
