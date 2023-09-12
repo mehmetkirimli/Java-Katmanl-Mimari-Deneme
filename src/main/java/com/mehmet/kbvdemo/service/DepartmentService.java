@@ -17,5 +17,7 @@ public interface DepartmentService
 
   ResponseEntity<DepartmentDto> update(DepartmentDto departmentDto);
 
+  ResponseEntity<DepartmentDto> delete(Long id);
+
 
 }
