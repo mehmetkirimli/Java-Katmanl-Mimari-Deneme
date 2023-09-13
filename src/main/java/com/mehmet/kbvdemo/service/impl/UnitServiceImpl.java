@@ -2,6 +2,7 @@ package com.mehmet.kbvdemo.service.impl;
 
 import com.mehmet.kbvdemo.bean.FindUnitBean;
 import com.mehmet.kbvdemo.bean.SaveUnitBean;
+import com.mehmet.kbvdemo.dto.ScreenDto;
 import com.mehmet.kbvdemo.dto.UnitDto;
 import com.mehmet.kbvdemo.service.UnitService;
 import java.util.List;
@@ -57,5 +58,10 @@ public class UnitServiceImpl implements UnitService {
   @Override
   public ResponseEntity<UnitDto> delete(Long id) {
     return null;
+  }
+
+  @Override
+  public ResponseEntity<ScreenDto> kafa(Long id) {
+    return findUnitBean.kafamızaGore(id);
   }
 }

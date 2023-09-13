@@ -1,6 +1,7 @@
 package com.mehmet.kbvdemo.controller;
 
 
+import com.mehmet.kbvdemo.dto.ScreenDto;
 import com.mehmet.kbvdemo.dto.UnitDto;
 import com.mehmet.kbvdemo.entity.Unit;
 import com.mehmet.kbvdemo.service.UnitService;
@@ -44,6 +45,12 @@ public class UnitController
   public ResponseEntity<UnitDto> save (@RequestBody UnitDto unitDto)
   {
     return unitService.save(unitDto);
+  }
+
+  @GetMapping(value = "/onlyName")
+  public ResponseEntity<ScreenDto> kafamizaGore (@RequestParam("id") Long id )
+  {
+    return unitService.kafa(id);
   }
 
 }
