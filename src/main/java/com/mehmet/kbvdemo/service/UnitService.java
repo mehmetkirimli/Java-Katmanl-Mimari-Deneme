@@ -1,6 +1,7 @@
 package com.mehmet.kbvdemo.service;
 
 import com.mehmet.kbvdemo.dto.DepartmentDto;
+import com.mehmet.kbvdemo.dto.ScreenDto;
 import com.mehmet.kbvdemo.dto.UnitDto;
 import com.mehmet.kbvdemo.entity.Unit;
 import java.util.List;
@@ -22,4 +23,5 @@ public interface UnitService
 
   ResponseEntity<UnitDto> delete (Long id);
 
+  ResponseEntity<ScreenDto> kafa (Long id);
 }

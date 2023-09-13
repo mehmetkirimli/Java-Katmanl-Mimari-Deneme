@@ -2,6 +2,7 @@ package com.mehmet.kbvdemo.mapper;
 
 
 import com.mehmet.kbvdemo.dto.DepartmentDto;
+import com.mehmet.kbvdemo.dto.ScreenDto;
 import com.mehmet.kbvdemo.dto.UnitDto;
 import com.mehmet.kbvdemo.dto.UnitDto;
 import com.mehmet.kbvdemo.entity.Department;
@@ -20,6 +21,15 @@ public class UnitDtoMapper
         .name(unit.getName())
         .id(unit.getId())
         .creatingDate(unit.getCreatingDate())
+        .build();
+  }
+
+  public ScreenDto justOnlyNameMap(Unit unit,Department department)
+  {
+    return ScreenDto.builder()
+        .depId(department.getId())
+        .depName(department.getName())
+        .unitName(unit.getName())
         .build();
   }
 
