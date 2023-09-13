@@ -4,6 +4,7 @@ import com.mehmet.kbvdemo.bean.FindUnitBean;
 import com.mehmet.kbvdemo.bean.SaveUnitBean;
 import com.mehmet.kbvdemo.dto.UnitDto;
 import com.mehmet.kbvdemo.service.UnitService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,18 +33,20 @@ public class UnitServiceImpl implements UnitService {
 
   @Override
   public ResponseEntity<UnitDto> find(Long id) {
-    return null;
+
+    return findUnitBean.find(id);
   }
 
   @Override
   public ResponseEntity<UnitDto> findByDepartmentId(Long id)
   {
-    return null;
+    return findUnitBean.getUnitByDepartmentId(id);
   }
 
   @Override
-  public ResponseEntity<UnitDto> findAll() {
-    return null;
+  public ResponseEntity<List<UnitDto>> findAll() {
+
+    return findUnitBean.findAll();
   }
 
   @Override
