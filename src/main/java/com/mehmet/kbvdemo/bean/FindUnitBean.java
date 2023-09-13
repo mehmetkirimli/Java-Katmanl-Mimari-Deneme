@@ -25,8 +25,8 @@ public class FindUnitBean
 
   public ResponseEntity<UnitDto> getUnitByDepartmentId(Long id)
   {
-     //DepartmentDto departmentDto = findDepartmentBean.find(id).getBody();
-     //Optional<Unit> unit = unitRepository.findById((unitDtoMapper.convertToEntity(departmentDto.getUnitDto())).getId());
+     DepartmentDto departmentDto = findDepartmentBean.find(id).getBody();
+     Optional<Unit> unit = unitRepository.findById((unitDtoMapper.convertToEntity(departmentDto.getUnitDto())).getId());
     //Optional<Unit> unitOptional = unitRepository.findUnitByDepartment_Id(unitDtoMapper.)
 
      if (unit.isPresent())

@@ -17,7 +17,7 @@ public class DepartmentDtoMapper {
         .departmentGroup(department.getDepartmentGroup())
         .id(department.getId())
         .consTeam(department.getConsTeam())
-        .unitId(department.getUnit().getId())
+        //.unitId(department.getUnit().getId())
         .build();
   }
 

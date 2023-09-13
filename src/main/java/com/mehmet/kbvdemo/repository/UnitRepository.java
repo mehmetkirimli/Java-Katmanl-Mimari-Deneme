@@ -12,5 +12,5 @@ import org.springframework.stereotype.Repository;
 public interface UnitRepository extends CrudRepository<Unit,Long>
 {
   @Query("SELECT u FROM Unit u WHERE u.department.id = :departmentId")
-  Unit findUnitByDepartment_Id(@Param("departmentId") Long departmentId); //JPQL değil
+  Unit findUnitByDepartment_Id(@Param("departmentId") Long departmentId);
 }

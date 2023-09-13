@@ -24,8 +24,9 @@ public class DepartmentDto {
   private String name;
   private String consTeam;
   private Long departmentGroup;
-  //private UnitDto unitDto;
-  private Long unitId;
+  private UnitDto unitDto;
+
+  //private Long unitId;
 
 
   public Department convertToEntity(DepartmentDto departmentDto)
@@ -36,10 +37,11 @@ public class DepartmentDto {
     department.setName(departmentDto.getName());
     department.setDepartmentGroup(departmentDto.getDepartmentGroup());
     department.setConsTeam(departmentDto.getConsTeam());
-    //department.setUnit(departmentDto.getUnitDto() != null ? new UnitDtoMapper().convertToEntity(departmentDto.getUnitDto()) : null);
-    Unit unit = new Unit();
-    unit.setId(departmentDto.getUnitId());
-    department.setUnit(unit);
+    department.setUnit(departmentDto.getUnitDto() != null ? new UnitDtoMapper().convertToEntity(departmentDto.getUnitDto()) : null);
+
+    //Unit unit = new Unit();
+    //unit.setId(departmentDto.getUnitId());
+    //department.setUnit(unit);
 
     return department ;
   }

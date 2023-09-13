@@ -34,8 +34,8 @@ public class Unit implements Serializable
   @Column(name = "creating_date")
   private LocalDate creatingDate;
 
-  @OneToMany(mappedBy = "unit")
-  private List<Department> departments ;
+  //@OneToMany(mappedBy = "unit")
+  //private List<Department> departments ;
 
 
 }
