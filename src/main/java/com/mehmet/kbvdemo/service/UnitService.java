@@ -22,6 +22,8 @@ public interface UnitService
   ResponseEntity<UnitDto> update (UnitDto unitDto);
 
   ResponseEntity<UnitDto> delete (Long id);
+  ResponseEntity<UnitDto> deleteById (Long id);
+
 
   ResponseEntity<ScreenDto> kafa (Long id);
 }

@@ -9,6 +9,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -55,9 +56,15 @@ public class UnitController
   }
 
   @PutMapping(value = "/update")
-  public ResponseEntity<UnitDto> update (@RequestParam UnitDto unitDto)
+  public ResponseEntity<UnitDto> update (@RequestBody UnitDto unitDto)
   {
     return unitService.update(unitDto);
+  }
+
+  @DeleteMapping(value = "/deleteById")
+  public ResponseEntity<UnitDto> deleteById(@RequestParam ("id") Long id)
+  {
+    return unitService.deleteById(id);
   }
 
 }
