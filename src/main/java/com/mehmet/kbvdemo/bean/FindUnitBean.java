@@ -2,6 +2,7 @@ package com.mehmet.kbvdemo.bean;
 
 import com.mehmet.kbvdemo.dto.DepartmentDto;
 import com.mehmet.kbvdemo.dto.ScreenDto;
+import com.mehmet.kbvdemo.dto.ShowDto;
 import com.mehmet.kbvdemo.dto.UnitDto;
 import com.mehmet.kbvdemo.entity.Department;
 import com.mehmet.kbvdemo.entity.Unit;
@@ -36,7 +37,8 @@ public class FindUnitBean {
     return new ResponseEntity<UnitDto>(dto,HttpStatusCode.valueOf(200));
 
   }
-  public  ResponseEntity<ScreenDto> kafamızaGore(Long id){
+  public  ResponseEntity<ScreenDto> kafamızaGore(Long id)
+  {
 
     Optional<Department> departmentDtoResponseEntity = departmentRepository.findById(id);
 
@@ -46,6 +48,12 @@ public class FindUnitBean {
     ScreenDto screenDto = unitDtoMapper.justOnlyNameMap(unit.get(),departmentDtoResponseEntity.get());
 
     return new ResponseEntity<ScreenDto>(screenDto,HttpStatusCode.valueOf(200));
+  }
+
+  public ResponseEntity<ShowDto> listUnitAndDepartment()
+  {
+
+    return null;
   }
 
   public ResponseEntity<UnitDto> find(Long id) {

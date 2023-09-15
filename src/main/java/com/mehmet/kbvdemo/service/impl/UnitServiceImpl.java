@@ -5,6 +5,7 @@ import com.mehmet.kbvdemo.bean.FindUnitBean;
 import com.mehmet.kbvdemo.bean.SaveUnitBean;
 import com.mehmet.kbvdemo.bean.UpdateUnitBean;
 import com.mehmet.kbvdemo.dto.ScreenDto;
+import com.mehmet.kbvdemo.dto.ShowDto;
 import com.mehmet.kbvdemo.dto.UnitDto;
 import com.mehmet.kbvdemo.service.UnitService;
 import java.util.List;
@@ -67,6 +68,12 @@ public class UnitServiceImpl implements UnitService {
   public ResponseEntity<UnitDto> deleteById(Long id)
   {
     return deleteUnitBean.deleteById(id);
+  }
+
+  @Override
+  public ResponseEntity<ShowDto> listUnitAndDepartment()
+  {
+    return findUnitBean.listUnitAndDepartment();
   }
 
   @Override
