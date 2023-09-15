@@ -3,8 +3,8 @@ package com.mehmet.kbvdemo.controller;
 
 import com.mehmet.kbvdemo.dto.ScreenDto;
 import com.mehmet.kbvdemo.dto.ShowDto;
+import com.mehmet.kbvdemo.dto.ShowInterface;
 import com.mehmet.kbvdemo.dto.UnitDto;
-import com.mehmet.kbvdemo.entity.Unit;
 import com.mehmet.kbvdemo.service.UnitService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -69,7 +69,7 @@ public class UnitController
   }
 
   @GetMapping(value = "/listAllUnitAndDepartment")
-  public ResponseEntity<ShowDto> listUnitAndDepartment ()
+  public ResponseEntity<List<ShowInterface>> listUnitAndDepartment ()
   {
     return unitService.listUnitAndDepartment();
   }

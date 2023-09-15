@@ -1,18 +1,17 @@
 package com.mehmet.kbvdemo.bean;
 
-import com.mehmet.kbvdemo.dto.DepartmentDto;
 import com.mehmet.kbvdemo.dto.ScreenDto;
 import com.mehmet.kbvdemo.dto.ShowDto;
+import com.mehmet.kbvdemo.dto.ShowInterface;
 import com.mehmet.kbvdemo.dto.UnitDto;
 import com.mehmet.kbvdemo.entity.Department;
 import com.mehmet.kbvdemo.entity.Unit;
 import com.mehmet.kbvdemo.mapper.UnitDtoMapper;
 import com.mehmet.kbvdemo.repository.DepartmentRepository;
 import com.mehmet.kbvdemo.repository.UnitRepository;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import javax.swing.text.html.Option;
+import java.util.function.Function;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
@@ -50,10 +49,11 @@ public class FindUnitBean {
     return new ResponseEntity<ScreenDto>(screenDto,HttpStatusCode.valueOf(200));
   }
 
-  public ResponseEntity<ShowDto> listUnitAndDepartment()
+  public ResponseEntity<List<ShowInterface>> listUnitAndDepartment()
   {
+    List<ShowInterface> list =  unitRepository.getListUnitAndDepartment();
 
-    return null;
+    return new ResponseEntity<List<ShowInterface>>(list,HttpStatusCode.valueOf(200));
   }
 
   public ResponseEntity<UnitDto> find(Long id) {

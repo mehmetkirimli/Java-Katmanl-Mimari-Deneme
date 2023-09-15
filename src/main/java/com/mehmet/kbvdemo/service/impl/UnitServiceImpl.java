@@ -6,6 +6,7 @@ import com.mehmet.kbvdemo.bean.SaveUnitBean;
 import com.mehmet.kbvdemo.bean.UpdateUnitBean;
 import com.mehmet.kbvdemo.dto.ScreenDto;
 import com.mehmet.kbvdemo.dto.ShowDto;
+import com.mehmet.kbvdemo.dto.ShowInterface;
 import com.mehmet.kbvdemo.dto.UnitDto;
 import com.mehmet.kbvdemo.service.UnitService;
 import java.util.List;
@@ -71,7 +72,7 @@ public class UnitServiceImpl implements UnitService {
   }
 
   @Override
-  public ResponseEntity<ShowDto> listUnitAndDepartment()
+  public ResponseEntity<List<ShowInterface>> listUnitAndDepartment()
   {
     return findUnitBean.listUnitAndDepartment();
   }

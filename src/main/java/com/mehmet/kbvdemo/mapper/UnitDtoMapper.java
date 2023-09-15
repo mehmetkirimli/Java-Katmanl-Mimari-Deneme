@@ -1,10 +1,7 @@
 package com.mehmet.kbvdemo.mapper;
 
 
-import com.mehmet.kbvdemo.dto.DepartmentDto;
 import com.mehmet.kbvdemo.dto.ScreenDto;
-import com.mehmet.kbvdemo.dto.ShowDto;
-import com.mehmet.kbvdemo.dto.UnitDto;
 import com.mehmet.kbvdemo.dto.UnitDto;
 import com.mehmet.kbvdemo.entity.Department;
 import com.mehmet.kbvdemo.entity.Unit;
@@ -34,29 +31,6 @@ public class UnitDtoMapper
         .build();
   }
 
-  public ShowDto unitAndDepartmentMap(Unit unit,Department department)
-  {
-    return ShowDto.builder()
-        .unitId(unit.getId())
-        .unitName(unit.getName())
-        .depName(department.getName())
-        .depId(department.getId())
-        .build();
-  }
-
-  public List<ShowDto> listUnitAndDepartmentMap(List<ShowDto> list) // repodan gelen veri dto tipinde değil aslında , burada bi hatam var. SOR ???
-  {
-    List<ShowDto> mappedList = new ArrayList<>();
-
-    /*
-    for (ShowDto showDto : list)
-    {
-      mappedList.add(this.unitAndDepartmentMap();
-    }
-
-     */
-    return mappedList;
-  }
 
   public List<UnitDto> mapList(List<Unit> list) {
     List<UnitDto> mappedList = new ArrayList<>();

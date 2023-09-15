@@ -1,10 +1,9 @@
 package com.mehmet.kbvdemo.service;
 
-import com.mehmet.kbvdemo.dto.DepartmentDto;
 import com.mehmet.kbvdemo.dto.ScreenDto;
 import com.mehmet.kbvdemo.dto.ShowDto;
+import com.mehmet.kbvdemo.dto.ShowInterface;
 import com.mehmet.kbvdemo.dto.UnitDto;
-import com.mehmet.kbvdemo.entity.Unit;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
 
@@ -25,6 +24,6 @@ public interface UnitService
   ResponseEntity<UnitDto> delete (Long id);
   ResponseEntity<UnitDto> deleteById (Long id);
 
-  ResponseEntity<ShowDto> listUnitAndDepartment();
+  ResponseEntity<List<ShowInterface>> listUnitAndDepartment();
   ResponseEntity<ScreenDto> kafa (Long id);
 }
