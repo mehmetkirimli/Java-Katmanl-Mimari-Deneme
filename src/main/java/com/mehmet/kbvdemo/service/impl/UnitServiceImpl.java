@@ -2,6 +2,7 @@ package com.mehmet.kbvdemo.service.impl;
 
 import com.mehmet.kbvdemo.bean.FindUnitBean;
 import com.mehmet.kbvdemo.bean.SaveUnitBean;
+import com.mehmet.kbvdemo.bean.UpdateUnitBean;
 import com.mehmet.kbvdemo.dto.ScreenDto;
 import com.mehmet.kbvdemo.dto.UnitDto;
 import com.mehmet.kbvdemo.service.UnitService;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Service;
 public class UnitServiceImpl implements UnitService {
   private final FindUnitBean findUnitBean;
   private final SaveUnitBean savedUnitBean;
-  //private final UpdateUnitBean updateUnitBean;
+  private final UpdateUnitBean updateUnitBean;
   //private final DeleteUnitBean deleteUnitBean;
 
 
@@ -51,8 +52,9 @@ public class UnitServiceImpl implements UnitService {
   }
 
   @Override
-  public ResponseEntity<UnitDto> update(UnitDto unitDto) {
-    return null;
+  public ResponseEntity<UnitDto> update(UnitDto unitDto)
+  {
+    return updateUnitBean.update(unitDto);
   }
 
   @Override
