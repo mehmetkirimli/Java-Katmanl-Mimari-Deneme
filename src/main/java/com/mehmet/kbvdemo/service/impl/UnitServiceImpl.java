@@ -1,5 +1,6 @@
 package com.mehmet.kbvdemo.service.impl;
 
+import com.mehmet.kbvdemo.bean.DeleteUnitBean;
 import com.mehmet.kbvdemo.bean.FindUnitBean;
 import com.mehmet.kbvdemo.bean.SaveUnitBean;
 import com.mehmet.kbvdemo.bean.UpdateUnitBean;
@@ -18,7 +19,7 @@ public class UnitServiceImpl implements UnitService {
   private final FindUnitBean findUnitBean;
   private final SaveUnitBean savedUnitBean;
   private final UpdateUnitBean updateUnitBean;
-  //private final DeleteUnitBean deleteUnitBean;
+  private final DeleteUnitBean deleteUnitBean;
 
 
 
@@ -60,6 +61,12 @@ public class UnitServiceImpl implements UnitService {
   @Override
   public ResponseEntity<UnitDto> delete(Long id) {
     return null;
+  }
+
+  @Override
+  public ResponseEntity<UnitDto> deleteById(Long id)
+  {
+    return deleteUnitBean.deleteById(id);
   }
 
   @Override

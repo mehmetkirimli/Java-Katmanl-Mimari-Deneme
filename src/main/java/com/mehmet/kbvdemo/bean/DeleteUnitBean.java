@@ -1,6 +1,5 @@
 package com.mehmet.kbvdemo.bean;
 
-
 import com.mehmet.kbvdemo.dto.UnitDto;
 import com.mehmet.kbvdemo.entity.Unit;
 import com.mehmet.kbvdemo.mapper.UnitDtoMapper;
@@ -15,27 +14,21 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class UpdateUnitBean
+public class DeleteUnitBean
 {
   private final UnitRepository unitRepository;
   private final UnitDtoMapper unitDtoMapper;
 
   @Transactional
-  public ResponseEntity<UnitDto> update (UnitDto unitDto)
+  public ResponseEntity<UnitDto> deleteById(Long id)
   {
-    Optional<Unit> unit = unitRepository.findById(unitDto.getId());
-
+    Optional<Unit> unit = unitRepository.findById(id);
     if(unit.isPresent())
     {
-      unitDto.setId(unit.get().getId());
+      unitRepository.delete(unit.get());
     }
-    else
-    {
-      unitDto.setId(null);
-    }
-    Unit save = unitRepository.save(unitDtoMapper.convertToEntity(unitDto));
+    return new ResponseEntity<UnitDto>(unitDtoMapper.map(unit.get()), HttpStatusCode.valueOf(200));
 
-    return new ResponseEntity<UnitDto>(unitDtoMapper.map(save), HttpStatusCode.valueOf(200));
   }
 
 }
