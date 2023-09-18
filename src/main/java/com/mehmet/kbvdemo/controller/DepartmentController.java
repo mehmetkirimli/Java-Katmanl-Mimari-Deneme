@@ -1,6 +1,7 @@
 package com.mehmet.kbvdemo.controller;
 
 import com.mehmet.kbvdemo.dto.DepartmentDto;
+import com.mehmet.kbvdemo.dto.filter.DepartmentFilter;
 import com.mehmet.kbvdemo.entity.Department;
 import com.mehmet.kbvdemo.repository.DepartmentRepository;
 import com.mehmet.kbvdemo.service.DepartmentService;
@@ -53,6 +54,12 @@ public class DepartmentController
   public ResponseEntity<DepartmentDto> deleteDepartment(@RequestParam ("id") Long id)
   {
     return departmentService.delete(id);
+  }
+
+  @PostMapping(value = "/filterBySpec")
+  public ResponseEntity<List<DepartmentDto>> filterBySpec (@RequestBody DepartmentFilter filter)
+  {
+    return departmentService.filterBySpec(filter);
   }
 
 }

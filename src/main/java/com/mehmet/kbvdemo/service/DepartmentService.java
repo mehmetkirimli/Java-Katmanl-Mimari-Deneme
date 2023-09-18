@@ -1,6 +1,7 @@
 package com.mehmet.kbvdemo.service;
 
 import com.mehmet.kbvdemo.dto.DepartmentDto;
+import com.mehmet.kbvdemo.dto.filter.DepartmentFilter;
 import com.mehmet.kbvdemo.entity.Department;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,8 @@ public interface DepartmentService
   ResponseEntity<DepartmentDto> update(DepartmentDto departmentDto);
 
   ResponseEntity<DepartmentDto> delete(Long id);
+
+  ResponseEntity<List<DepartmentDto>> filterBySpec(DepartmentFilter filter);
 
 
 }

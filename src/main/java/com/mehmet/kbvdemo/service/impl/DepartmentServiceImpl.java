@@ -2,9 +2,11 @@ package com.mehmet.kbvdemo.service.impl;
 
 import com.mehmet.kbvdemo.bean.DeleteDepartmentBean;
 import com.mehmet.kbvdemo.bean.FindDepartmentBean;
+import com.mehmet.kbvdemo.bean.ListDepartmentBean;
 import com.mehmet.kbvdemo.bean.SaveDepartmentBean;
 import com.mehmet.kbvdemo.bean.UpdateDepartmentBean;
 import com.mehmet.kbvdemo.dto.DepartmentDto;
+import com.mehmet.kbvdemo.dto.filter.DepartmentFilter;
 import com.mehmet.kbvdemo.entity.Department;
 import com.mehmet.kbvdemo.service.DepartmentService;
 import java.util.List;
@@ -21,6 +23,7 @@ public class DepartmentServiceImpl implements DepartmentService {
   private final SaveDepartmentBean saveDepartmentBean;
   private final UpdateDepartmentBean updateDepartmentBean;
   private final DeleteDepartmentBean deleteDepartmentBean;
+  private final ListDepartmentBean listDepartmentBean;
 
   @Override
   public ResponseEntity<DepartmentDto> save(DepartmentDto departmentDto) {
@@ -51,5 +54,11 @@ public class DepartmentServiceImpl implements DepartmentService {
   @Override
   public ResponseEntity<DepartmentDto> delete(Long id) {
     return deleteDepartmentBean.delete(id);
+  }
+
+  @Override
+  public ResponseEntity<List<DepartmentDto>> filterBySpec(DepartmentFilter filter)
+  {
+    return listDepartmentBean.filterBySpec(filter);
   }
 }
