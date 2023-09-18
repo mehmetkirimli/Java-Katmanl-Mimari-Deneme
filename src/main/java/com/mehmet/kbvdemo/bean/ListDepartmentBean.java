@@ -10,6 +10,7 @@ import com.mehmet.kbvdemo.spec.DepartmentSpec;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -22,14 +23,17 @@ public class ListDepartmentBean
   private final DepartmentDtoMapper departmentDtoMapper;
 
 
-  public ResponseEntity<List<DepartmentDto>> filterBySpec(DepartmentFilter filter) // BURDAKİ HATA NE ????
+  public ResponseEntity<List<DepartmentDto>> filterBySpec(DepartmentFilter filter) // BURKINA HATA NE ????
   {
-    ResponseEntity<List<DepartmentDto>> response = new ResponseEntity<List<DepartmentDto>>(departmentDtoMapper.mapList(
-        (List<Department>) departmentRepository.findAll(DepartmentSpec.findByFilter(filter))),
-        HttpStatusCode.valueOf(200));
 
+    List<Department> departments = departmentRepository.findAll(DepartmentSpec.findByFilter(filter)); // Burada filter'ı nasıl alacağınıza dikkat edin.
+         if (departments.isEmpty())
+         {
+         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+         }
+         List<DepartmentDto> departmentDtos = departmentDtoMapper.mapListSpec(departments);
+         return new ResponseEntity<>(departmentDtos, HttpStatus.OK);
 
-    return response;
   }
 
 }

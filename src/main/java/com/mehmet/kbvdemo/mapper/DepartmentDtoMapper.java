@@ -21,12 +21,32 @@ public class DepartmentDtoMapper {
         .build();
   }
 
+  public DepartmentDto mapSpec(Department department)
+  {
+    return DepartmentDto.builder()
+        .name(department.getName())
+        .departmentGroup(department.getDepartmentGroup())
+        .consTeam(department.getConsTeam())
+        //.unitId(department.getUnit().getId())
+        .build();
+  }
+
   public List<DepartmentDto> mapList(List<Department> list) {
     List<DepartmentDto> mappedList = new ArrayList<>();
 
     for(Department department : list)
     {
       mappedList.add(this.map(department));
+    }
+    return mappedList;
+  }
+
+  public List<DepartmentDto> mapListSpec(List<Department> list) {
+    List<DepartmentDto> mappedList = new ArrayList<>();
+
+    for(Department department : list)
+    {
+      mappedList.add(this.mapSpec(department));
     }
     return mappedList;
   }

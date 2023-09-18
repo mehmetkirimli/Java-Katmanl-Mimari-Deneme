@@ -13,17 +13,17 @@ import org.springframework.data.jpa.domain.Specification;
 public class DepartmentSpec implements Specification<Department>
 {
   @Override
-  public Predicate toPredicate(Root<Department> root, CriteriaQuery<?> query,
-      CriteriaBuilder criteriaBuilder)
+  public Predicate toPredicate(Root<Department> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder)
   {
-    return null;
+    Predicate p =criteriaBuilder.disjunction();
+    return p;
   }
 
 
   public static Specification<Department> findByFilter(DepartmentFilter filter){
 
 
-    return ((root, query, criteriaBuilder) ->
+    return (root, query, criteriaBuilder) ->
     {
       Predicate p = criteriaBuilder.disjunction();
       List<Predicate> predicateList = new ArrayList<>();
@@ -33,7 +33,7 @@ public class DepartmentSpec implements Specification<Department>
       {
         if(filter.getConsTeam()!=null)
         {
-          predicateList.add(criteriaBuilder.equal(root.get("consTeam"),filter.getConsTeam()));
+          predicateList.add(criteriaBuilder.like(root.get("consTeam"),"%" + filter.getConsTeam() + "%"));
         }
         if(filter.getDepartmentGroup()!=null)
         {
@@ -47,8 +47,7 @@ public class DepartmentSpec implements Specification<Department>
 
       p.getExpressions().add(criteriaBuilder.and(predicateList.toArray(new Predicate[predicateList.size()])));
       return p;
-    }
-    );
+    };
   }
 
 
