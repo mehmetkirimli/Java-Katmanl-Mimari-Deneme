@@ -24,11 +24,12 @@ public class ListDepartmentBean
 
   public ResponseEntity<List<DepartmentDto>> filterBySpec(DepartmentFilter filter) // BURDAKİ HATA NE ????
   {
-    //ResponseEntity<List<DepartmentDto>> response = new ResponseEntity<List<DepartmentDto>>(departmentDtoMapper.mapList(departmentRepository.findAll(DepartmentSpec.findByFilter(filter))),
-    //    HttpStatusCode.valueOf(200));
+    ResponseEntity<List<DepartmentDto>> response = new ResponseEntity<List<DepartmentDto>>(departmentDtoMapper.mapList(
+        (List<Department>) departmentRepository.findAll(DepartmentSpec.findByFilter(filter))),
+        HttpStatusCode.valueOf(200));
 
 
-    return null;
+    return response;
   }
 
 }
