@@ -1,7 +1,6 @@
 package com.mehmet.kbvdemo.service;
 
 import com.mehmet.kbvdemo.dto.ScreenDto;
-import com.mehmet.kbvdemo.dto.ShowDto;
 import com.mehmet.kbvdemo.dto.ShowInterface;
 import com.mehmet.kbvdemo.dto.UnitDto;
 import java.util.List;
