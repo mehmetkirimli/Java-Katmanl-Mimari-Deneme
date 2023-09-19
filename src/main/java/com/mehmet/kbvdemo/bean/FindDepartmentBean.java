@@ -33,10 +33,10 @@ public class FindDepartmentBean {
     return getDepartmentDto(id);
   }
 
-  public ResponseEntity<List<DepartmentDto>> findAll() //list
+  /*public ResponseEntity<List<DepartmentDto>> findAll() //list
   {
     return new ResponseEntity<List<DepartmentDto>>(mapper.mapList((List<Department>) repo.findAll()),HttpStatusCode.valueOf(200));
-  }
+  }*/
 
 
   public ResponseEntity<DepartmentDto> getDepartmentDto(Long id) {

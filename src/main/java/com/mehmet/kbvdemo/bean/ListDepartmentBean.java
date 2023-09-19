@@ -32,7 +32,7 @@ public class ListDepartmentBean
          return new ResponseEntity<>(HttpStatus.NOT_FOUND);
          }
          List<DepartmentDto> departmentDtos = departmentDtoMapper.mapListSpec(departments);
-         return new ResponseEntity<>(departmentDtos, HttpStatus.OK);
+         return new ResponseEntity<List<DepartmentDto>>(departmentDtos, HttpStatus.OK);
 
   }
 

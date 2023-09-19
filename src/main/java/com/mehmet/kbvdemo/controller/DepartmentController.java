@@ -24,19 +24,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class DepartmentController
 {
-  private final DepartmentService departmentService;
+ private final DepartmentService departmentService;
 
-  @GetMapping(value = "/byId")
+  /*@GetMapping(value = "/byId")
   public ResponseEntity<DepartmentDto> getDepartmentById(@RequestParam("id") Long id)
   {
     return departmentService.find(id);
-  }
+  }*/
 
- @GetMapping(value = "/getAll")
-  public ResponseEntity<List<DepartmentDto>> getAll()
-  {
-    return departmentService.findAll();
-  }
+
 
   @PostMapping(value = "/save")
   public ResponseEntity<DepartmentDto> saveDepartment(@RequestBody DepartmentDto departmentDto)

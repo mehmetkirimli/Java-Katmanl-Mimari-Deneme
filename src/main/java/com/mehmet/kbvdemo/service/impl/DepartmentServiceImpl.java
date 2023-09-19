@@ -40,10 +40,10 @@ public class DepartmentServiceImpl implements DepartmentService {
     return findDepartmentBean.find(id);
   }
 
-  @Override
+  /*@Override
   public ResponseEntity<List<DepartmentDto>> findAll() {
     return findDepartmentBean.findAll();
-  }
+  }*/
 
   @Override
   public ResponseEntity<DepartmentDto> update(DepartmentDto departmentDto)

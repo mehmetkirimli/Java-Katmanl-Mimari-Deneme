@@ -8,8 +8,13 @@ import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Component;
 
+@Component
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class DepartmentSpec implements Specification<Department>
 {
   @Override
@@ -31,7 +36,7 @@ public class DepartmentSpec implements Specification<Department>
 
       if (filter!=null)
       {
-        if(filter.getConsTeam()!=null)
+        if(filter.getConsTeam()!=null && !filter.getConsTeam().trim().equals(""))
         {
           predicateList.add(criteriaBuilder.like(root.get("consTeam"),"%" + filter.getConsTeam() + "%"));
         }
@@ -39,7 +44,7 @@ public class DepartmentSpec implements Specification<Department>
         {
           predicateList.add(criteriaBuilder.equal(root.get("departmentGroup"),filter.getDepartmentGroup()));
         }
-        if(filter.getName()!=null)
+        if(filter.getName()!=null && !filter.getName().trim().equals(""))
         {
           predicateList.add(criteriaBuilder.like(root.get("name"),"%" + filter.getName() + "%"));
         }

@@ -14,7 +14,7 @@ public interface DepartmentService
 
   ResponseEntity<DepartmentDto> find (Long id);
 
-  ResponseEntity<List<DepartmentDto>> findAll();
+  //ResponseEntity<List<DepartmentDto>> findAll();
 
   ResponseEntity<DepartmentDto> update(DepartmentDto departmentDto);
 
