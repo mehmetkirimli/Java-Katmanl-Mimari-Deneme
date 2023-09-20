@@ -23,17 +23,14 @@ public class ListDepartmentBean
   private final DepartmentDtoMapper departmentDtoMapper;
 
 
-  public ResponseEntity<List<DepartmentDto>> filterBySpec(DepartmentFilter filter) // BURKINA HATA NE ????
+  public ResponseEntity<List<DepartmentDto>> filterBySpec(DepartmentFilter filter)
   {
-
-    List<Department> departments = departmentRepository.findAll(DepartmentSpec.findByFilter(filter)); // Burada filter'ı nasıl alacağınıza dikkat edin.
+    List<Department> departments = departmentRepository.findAll(DepartmentSpec.findByFilter(filter));
          if (departments.isEmpty())
          {
          return new ResponseEntity<>(HttpStatus.NOT_FOUND);
          }
          List<DepartmentDto> departmentDtos = departmentDtoMapper.mapListSpec(departments);
          return new ResponseEntity<>(departmentDtos, HttpStatus.OK);
-
   }
-
 }

@@ -2,24 +2,29 @@ package com.mehmet.kbvdemo.spec;
 
 import com.mehmet.kbvdemo.dto.filter.DepartmentFilter;
 import com.mehmet.kbvdemo.entity.Department;
+import jakarta.persistence.Column;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Component;
 
+@Component
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class DepartmentSpec implements Specification<Department>
 {
-  @Override
-  public Predicate toPredicate(Root<Department> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder)
-  {
-    Predicate p =criteriaBuilder.disjunction();
-    return p;
-  }
 
-
+ @Override
+ public Predicate toPredicate(Root<Department> root, CriteriaQuery<?> query,
+     CriteriaBuilder criteriaBuilder) {
+   Predicate p =criteriaBuilder.disjunction();
+   return p;
+ }
   public static Specification<Department> findByFilter(DepartmentFilter filter){
 
 
