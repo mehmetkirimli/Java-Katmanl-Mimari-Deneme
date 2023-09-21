@@ -26,12 +26,17 @@ public class DepartmentController
 {
   private final DepartmentService departmentService;
 
+
+  // this method can be accessed by user whose role is User
   @GetMapping(value = "/byId")
   public ResponseEntity<DepartmentDto> getDepartmentById(@RequestParam("id") Long id)
   {
     return departmentService.find(id);
   }
 
+
+
+  // this method can be accessed by user whose role is Admin
  @GetMapping(value = "/getAll")
   public ResponseEntity<List<DepartmentDto>> getAll()
   {

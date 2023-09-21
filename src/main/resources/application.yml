@@ -1,0 +1,10 @@
+server:
+  port: 9090
+
+
+keycloak:
+  realm: mehmet
+  auth-server-url: http://localhost:8080
+  resource: keycloak
+  public-client: true
+  bearer-only: true

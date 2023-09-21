@@ -46,11 +46,11 @@ public class DepartmentSpec implements Specification<Department>
         }
         if(filter.getName()!=null)
         {
-          predicateList.add(criteriaBuilder.like(root.get("name"),"%" + filter.getName() + "%"));
+          predicateList.add(criteriaBuilder.equal(root.get("name"), filter.getName() ));
         }
       }
 
-      p.getExpressions().add(criteriaBuilder.and(predicateList.toArray(new Predicate[predicateList.size()])));
+      //p.getExpressions().add(criteriaBuilder.and(predicateList.toArray(new Predicate[predicateList.size()])));
       return p;
     };
   }
