@@ -13,7 +13,7 @@ import java.util.Optional;
 import java.util.function.Function;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatusCode;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
@@ -32,7 +32,7 @@ public class FindUnitBean {
     Optional<Unit> unit = unitRepository.findById(id1);
 
     UnitDto dto = unitDtoMapper.map(unit.get());
-    return new ResponseEntity<UnitDto>(dto,HttpStatusCode.valueOf(200));
+    return new ResponseEntity<UnitDto>(dto,HttpStatus.valueOf(200));
 
   }
   public  ResponseEntity<ScreenDto> kafamızaGore(Long id)
@@ -45,14 +45,14 @@ public class FindUnitBean {
 
     ScreenDto screenDto = unitDtoMapper.justOnlyNameMap(unit.get(),departmentDtoResponseEntity.get());
 
-    return new ResponseEntity<ScreenDto>(screenDto,HttpStatusCode.valueOf(200));
+    return new ResponseEntity<ScreenDto>(screenDto,HttpStatus.valueOf(200));
   }
 
   public ResponseEntity<List<ShowInterface>> listUnitAndDepartment()
   {
     List<ShowInterface> list =  unitRepository.getListUnitAndDepartment();
 
-    return new ResponseEntity<List<ShowInterface>>(list,HttpStatusCode.valueOf(200));
+    return new ResponseEntity<List<ShowInterface>>(list,HttpStatus.valueOf(200));
   }
 
   public ResponseEntity<UnitDto> find(Long id) {
@@ -65,16 +65,16 @@ public class FindUnitBean {
 
   public ResponseEntity<List<UnitDto>> findAll() {
     return new ResponseEntity<List<UnitDto>>(
-        unitDtoMapper.mapList((List<Unit>) unitRepository.findAll()), HttpStatusCode.valueOf(200));
+        unitDtoMapper.mapList((List<Unit>) unitRepository.findAll()), HttpStatus.valueOf(200));
   }
 
   public ResponseEntity<UnitDto> getUnitDto(Long id) {
     ResponseEntity<UnitDto> unitDtoResponseEntity = new ResponseEntity<UnitDto>(
-        HttpStatusCode.valueOf(404));
+        HttpStatus.valueOf(404));
     Optional<Unit> unit = unitRepository.findById(id);
     if (unit.isPresent()) {
       unitDtoResponseEntity = new ResponseEntity<UnitDto>(unitDtoMapper.map(unit.get()),
-          HttpStatusCode.valueOf(200));
+          HttpStatus.valueOf(200));
     }
     return unitDtoResponseEntity;
   }

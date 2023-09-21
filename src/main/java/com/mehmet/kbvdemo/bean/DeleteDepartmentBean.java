@@ -2,12 +2,12 @@ package com.mehmet.kbvdemo.bean;
 
 import com.mehmet.kbvdemo.dto.DepartmentDto;
 import com.mehmet.kbvdemo.repository.DepartmentRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatusCode;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -25,7 +25,7 @@ public class DeleteDepartmentBean
     {
       departmentRepository.deleteById(id);
     }
-    return new ResponseEntity<DepartmentDto>(deleteDepartmentDto, HttpStatusCode.valueOf(200));
+    return new ResponseEntity<DepartmentDto>(deleteDepartmentDto, HttpStatus.valueOf(200));
   }
 
 }

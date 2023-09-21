@@ -4,12 +4,12 @@ import com.mehmet.kbvdemo.dto.DepartmentDto;
 import com.mehmet.kbvdemo.entity.Department;
 import com.mehmet.kbvdemo.mapper.DepartmentDtoMapper;
 import com.mehmet.kbvdemo.repository.DepartmentRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatusCode;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
@@ -19,8 +19,8 @@ public class FindDepartmentBean {
 
   private final DepartmentRepository repo;
   private final DepartmentDtoMapper mapper;
-  HttpStatusCode OK = HttpStatusCode.valueOf(200);
-  HttpStatusCode NOTFOUND = HttpStatusCode.valueOf(404);
+  HttpStatus OK = HttpStatus.valueOf(200);
+  HttpStatus NOTFOUND = HttpStatus.valueOf(404);
 
 
 
@@ -35,7 +35,7 @@ public class FindDepartmentBean {
 
   public ResponseEntity<List<DepartmentDto>> findAll() //list
   {
-    return new ResponseEntity<List<DepartmentDto>>(mapper.mapList((List<Department>) repo.findAll()),HttpStatusCode.valueOf(200));
+    return new ResponseEntity<List<DepartmentDto>>(mapper.mapList((List<Department>) repo.findAll()),HttpStatus.valueOf(200));
   }
 
 

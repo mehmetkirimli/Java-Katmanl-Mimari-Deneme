@@ -4,13 +4,13 @@ import com.mehmet.kbvdemo.dto.UnitDto;
 import com.mehmet.kbvdemo.entity.Unit;
 import com.mehmet.kbvdemo.mapper.UnitDtoMapper;
 import com.mehmet.kbvdemo.repository.UnitRepository;
-import jakarta.transaction.Transactional;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatusCode;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -27,7 +27,7 @@ public class DeleteUnitBean
     {
       unitRepository.delete(unit.get());
     }
-    return new ResponseEntity<UnitDto>(unitDtoMapper.map(unit.get()), HttpStatusCode.valueOf(200));
+    return new ResponseEntity<UnitDto>(unitDtoMapper.map(unit.get()), HttpStatus.valueOf(200));
 
   }
 

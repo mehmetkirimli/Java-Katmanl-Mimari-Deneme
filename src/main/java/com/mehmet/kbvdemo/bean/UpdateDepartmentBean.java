@@ -5,13 +5,13 @@ import com.mehmet.kbvdemo.dto.DepartmentDto;
 import com.mehmet.kbvdemo.entity.Department;
 import com.mehmet.kbvdemo.mapper.DepartmentDtoMapper;
 import com.mehmet.kbvdemo.repository.DepartmentRepository;
-import jakarta.transaction.Transactional;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatusCode;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -38,7 +38,7 @@ public class UpdateDepartmentBean
 
     Department save = repository.save(mapper.convertToEntity(departmentDto));
 
-    return new ResponseEntity<DepartmentDto>(mapper.map(save), HttpStatusCode.valueOf(200));
+    return new ResponseEntity<DepartmentDto>(mapper.map(save), HttpStatus.valueOf(200));
 
 
 
