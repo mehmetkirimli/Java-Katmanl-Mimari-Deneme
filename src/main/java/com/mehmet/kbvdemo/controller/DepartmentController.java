@@ -5,6 +5,7 @@ import com.mehmet.kbvdemo.dto.filter.DepartmentFilter;
 import com.mehmet.kbvdemo.entity.Department;
 import com.mehmet.kbvdemo.repository.DepartmentRepository;
 import com.mehmet.kbvdemo.service.DepartmentService;
+import jakarta.annotation.security.RolesAllowed;
 import java.util.Iterator;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -29,6 +30,7 @@ public class DepartmentController
 
   // this method can be accessed by user whose role is User
   @GetMapping(value = "/byId")
+  @RolesAllowed("user")
   public ResponseEntity<DepartmentDto> getDepartmentById(@RequestParam("id") Long id)
   {
     return departmentService.find(id);
@@ -38,6 +40,7 @@ public class DepartmentController
 
   // this method can be accessed by user whose role is Admin
  @GetMapping(value = "/getAll")
+ @RolesAllowed("admin")
   public ResponseEntity<List<DepartmentDto>> getAll()
   {
     return departmentService.findAll();
