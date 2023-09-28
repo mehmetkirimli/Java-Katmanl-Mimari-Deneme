@@ -24,6 +24,7 @@ public class DepartmentSpec implements Specification<Department>
      CriteriaBuilder criteriaBuilder) {
    Predicate p =criteriaBuilder.disjunction();
    return p;
+   //commit
  }
   public static Specification<Department> findByFilter(DepartmentFilter filter){
 
